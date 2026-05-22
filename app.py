@@ -21,8 +21,7 @@ enroladinho_de_salsicha = st.number_input("Enroladinho de Salsicha", min_value=0
 risoles_de_carne = st.number_input("Risoles De Carne", min_value=0, value=0, step=1)
 pastel = st.number_input("Pastel", min_value=0, value=0, step=1)
 risoles_de_queijo_com_linguiça = st.number_input("Risoles de Queijo com Linguiça", min_value=0, value=0, step=1)
-empada_de_frango = st.number_input('Empada de Frango', min_value=0, value=0, step=1)
-
+empada_de_frango = st.number_input("Empada De Frango", min_value=0, value=0, step=1)
 
 st.write("---")
 
@@ -35,7 +34,7 @@ preço_empada_doce = 5.00
 
 pudim_80ml = st.number_input("Pudim de leite 80ml (R$ 3.00)", min_value=0, value=0, step=1)
 pudim_120ml = st.number_input("Pudim de leite 120ml (R$ 5.00)", min_value=0, value=0, step=1)
-empada_doce = st.number_input("Empada doce (R$5.00)", min_value=0, value=0, step=1)
+empada_doce = st.number_input("Empada Doce (R$ 5.00)")
 
 st.write("---")
 
@@ -72,6 +71,11 @@ if total_de_itens > 0:
     if pudim_120ml > 0:
         st.write(f"• **Pudim 120ml:** {pudim_120ml} un. (R$ {pudim_120ml * preço_pudim_120ml:.2f})")
         texto_whatzapp += f"• Pudim 120ml: {pudim_120ml} un. (R$ {pudim_120ml * preço_pudim_120ml:.2f})\n"
+
+    if empada_doce > 0:
+        st.write (f"• **Empada Doce:** {empada_doce} un. (R$ {empada_doce * preço_empada_doce::.2f})")
+        texto_whatzapp += f"Empada Doce: {empada_doce} un. (R$ {empada_doce * preço_empada_doce::.2f})\n"
+
 
     st.subheader(f"Total geral a pagar: R$ {valor_total:.2f}")
 
