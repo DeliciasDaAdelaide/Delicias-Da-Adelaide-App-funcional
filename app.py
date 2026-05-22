@@ -21,6 +21,8 @@ enroladinho_de_salsicha = st.number_input("Enroladinho de Salsicha", min_value=0
 risoles_de_carne = st.number_input("Risoles De Carne", min_value=0, value=0, step=1)
 pastel = st.number_input("Pastel", min_value=0, value=0, step=1)
 risoles_de_queijo_com_linguiça = st.number_input("Risoles de Queijo com Linguiça", min_value=0, value=0, step=1)
+empada_de_frango = st.number_input('Empada de Frango', min_value=0, value=0, step=1)
+
 
 st.write("---")
 
@@ -29,9 +31,11 @@ st.header("Escolha suas sobremesas")
 
 preço_pudim_80ml = 3.00
 preço_pudim_120ml = 5.00
+preço_empada_doce = 5.00
 
 pudim_80ml = st.number_input("Pudim de leite 80ml (R$ 3.00)", min_value=0, value=0, step=1)
 pudim_120ml = st.number_input("Pudim de leite 120ml (R$ 5.00)", min_value=0, value=0, step=1)
+empada_doce = st.number_input("Empada doce (R$5.00)", min_value=0, value=0, step=1)
 
 st.write("---")
 
@@ -45,10 +49,10 @@ Forma_de_pagamento = st.selectbox("Forma de Pagamento", ["Pix", "Dinheiro", "Car
 st.write("---")
 
 
-total_salgados = coxinha + enroladinho_de_salsicha + risoles_de_carne + pastel + risoles_de_queijo_com_linguiça
+total_salgados = coxinha + enroladinho_de_salsicha + risoles_de_carne + pastel + risoles_de_queijo_com_linguiça + empada_de_frango
 valor_salgados = total_salgados * preço_unidade
-valor_doces = (pudim_80ml * preço_pudim_80ml) + (pudim_120ml * preço_pudim_120ml)
-total_de_itens = total_salgados + pudim_80ml + pudim_120ml
+valor_doces = (pudim_80ml * preço_pudim_80ml) + (pudim_120ml * preço_pudim_120ml) + (empada_doce * preço_empada_doce)
+total_de_itens = total_salgados + pudim_80ml + pudim_120ml + empada_doce
 valor_total = valor_salgados + valor_doces
 
 
