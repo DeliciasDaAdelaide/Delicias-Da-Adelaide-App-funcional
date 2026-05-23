@@ -93,16 +93,24 @@ if total_de_itens > 0:
             
         texto_whatzapp += "\n"
 
-    st.subheader(f"Total geral a pagar: R$ {valor_total:.2f}")
+        st.subheader(f"Total geral a pagar: R$ {valor_total:.2f}")
 
-    texto_whatzapp += f"\n*Nome:* {nome}\n*Endereço:* {endereço}\n*Forma de pagamento:* {Forma_de_pagamento}\n*Total:* R$ {valor_total:.2f}"
+    texto_whatzapp += f"\n*Nome:* {nome}\n*Endereço:* {endereço}\n*Forma de pagamento:* {Forma_de_pagamento}\n*Total:* R$ {valor_total:.2f}\n\n*Obrigado pela preferência!*"
 
     texto_codificado = urllib.parse.quote(texto_whatzapp)
-    
     numero_da_vó = "5573998037389"
     link_whatzapp = f"https://wa.me/{numero_da_vó}?text={texto_codificado}"
 
     if nome and endereço:
-        st.link_button("Enviar pedido no WhatsApp", link_whatzapp)
+        if st.button("Confirmar e Ir para o Pagamento"):
+            st.empty() 
+            
+            st.balloons()
+            st.success("Pedido Processado com Sucesso!")
+            
+            st.header("Obrigado pela preferência! ")
+            st.write("Sua escolha nos deixa muito felizes. Clique no botão abaixo para finalizar o envio dos dados diretamente no WhatsApp da Adelaide.")
+    
+            st.link_button("Ir para o WhatsApp Agora", link_whatzapp, type="primary")
     else:
         st.warning("Por favor, preencha seu nome e endereço para liberar o envio do pedido")
